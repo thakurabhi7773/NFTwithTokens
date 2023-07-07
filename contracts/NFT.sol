@@ -6,7 +6,7 @@ contract NFT_With_Tokens {
     address public owner;
     string public name;
     string public symbol;
-    uint256 public erc20Supply = 10 * 10**6 ;
+    uint256 public erc20Supply = 1000000 * 10**18 ; //1 million ERC20 Tokens 
     uint public noOfNFTCreated;
 
     uint256 private _tokenId;
@@ -63,7 +63,7 @@ contract NFT_With_Tokens {
     function createNFT() external {
         require(erc20Supply > 0 , "erc20 supplies shortage");
         _mint();
-        uint256 _amount =  10 * 10**2 ;
+        uint256 _amount =  1000 * 10**18 ;
         transfer(owner, msg.sender, _amount);
         erc20Supply-=_amount;
     }
